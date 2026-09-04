@@ -131,31 +131,31 @@ const DashboardView = ({ showIssues, setShowIssues, notificationSelectId, onNoti
 
   
   return (
-    <div className="dash-page">
-      <div className="dash-header-row">
-        <div className="dash-header-text">
-          <h2 className="dash-title">Pending Submissions</h2>
-          <p className="dash-subtitle">Review new student project proposals requiring your approval.</p>
+    <div className="d-page">
+      <div className="d-head">
+        <div className="d-headText">
+          <h2 className="d-title">Pending Submissions</h2>
+          <p className="d-subtitle">Review new student project proposals requiring your approval.</p>
         </div>
 
               </div>
 
       {pendingIdeas.length === 0 ? (
-        <div className="dash-empty">
-          <span className="material-symbols-outlined dash-empty-icon">check_circle</span>
-          <p className="dash-empty-title">All caught up!</p>
-          <p className="dash-empty-subtitle">No pending submissions to review.</p>
+        <div className="d-empty">
+          <span className="material-symbols-outlined d-emptyIcon">check_circle</span>
+          <p className="d-emptyTitle">All caught up!</p>
+          <p className="d-emptySub">No pending submissions to review.</p>
         </div>
       ) : (
-        <div className="dash-main-grid">
-          <div className="dash-list-card">
-            <div className="dash-list-scroll">
-              <table className="dash-table">
-                <thead className="dash-table-head">
+        <div className="d-grid">
+          <div className="d-listCard">
+            <div className="d-scroll">
+              <table className="d-table">
+                <thead className="d-tableHead">
                   <tr>
-                    <th className="dash-th dash-th-idea">Idea Name</th>
-                    <th className="dash-th">Description</th>
-                    <th className="dash-th dash-th-status">Status</th>
+                    <th className="d-th d-thIdea">Idea Name</th>
+                    <th className="d-th">Description</th>
+                    <th className="d-th d-thStatus">Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -166,19 +166,19 @@ const DashboardView = ({ showIssues, setShowIssues, notificationSelectId, onNoti
                       <tr
                         key={ideaId}
                         onClick={() => { setSelectedId(ideaId); setFeedback(''); }}
-                        className={`dash-tr dash-tr-hover ${isSelected ? 'dash-tr-selected' : ''}`}
+                        className={`d-row d-rowHover ${isSelected ? 'd-rowSelected' : ''}`}
                       >
-                        <td className="dash-td dash-td-idea">
-                          <div className="dash-idea-meta">
-                            <span className="dash-idea-title">{idea.title}</span>
-                            <span className="dash-idea-submeta">{idea.leader.name} • {idea.session}</span>
+                        <td className="d-cell d-cellIdea">
+                          <div className="d-meta">
+                            <span className="d-ideaTitle">{idea.title}</span>
+                            <span className="d-ideaMeta">{idea.leader.name} • {idea.session}</span>
                           </div>
                         </td>
-                        <td className="dash-td">
-                          <p className="dash-idea-desc">{idea.shortDescription}</p>
+                        <td className="d-cell">
+                          <p className="d-ideaDesc">{idea.shortDescription}</p>
                         </td>
-                        <td className="dash-td">
-                          <span className="dash-status-pill dash-status-pill-pending">{idea.status}</span>
+                        <td className="d-cell">
+                          <span className="d-pill d-pillPending">{idea.status}</span>
                         </td>
                       </tr>
                     );
@@ -188,60 +188,60 @@ const DashboardView = ({ showIssues, setShowIssues, notificationSelectId, onNoti
             </div>
           </div>
 
-          <div className="dash-detail-column">
+          <div className="d-detailCol">
             {selectedIdea && (
-              <div className="dash-detail-card">
-                <div className="dash-detail-hero">
-                  <div className="dash-detail-avatar-wrapper">
-                    <div className="dash-detail-avatar">
+              <div className="d-detailCard">
+                <div className="d-hero">
+                  <div className="d-avatarWrap">
+                    <div className="d-avatar">
                       <span className="material-symbols-outlined">psychology</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="dash-detail-body">
+                <div className="d-body">
                   <div>
-                    <div className="dash-detail-title-row">
-                      <h3 className="dash-detail-title">{selectedIdea.title}</h3>
-                      <span className="dash-session-pill">{selectedIdea.session} Session</span>
+                    <div className="d-titleRow">
+                      <h3 className="d-detailTitle">{selectedIdea.title}</h3>
+                      <span className="d-session">{selectedIdea.session} Session</span>
                     </div>
-                    <p className="dash-detail-leader">
-                      Leader: <span className="dash-detail-leader-name">{selectedIdea.leader.name}</span>
+                    <p className="d-leader">
+                      Leader: <span className="d-leaderName">{selectedIdea.leader.name}</span>
                     </p>
                   </div>
 
-                  <div className="dash-detail-section">
-                    <h4 className="dash-section-label">Full Description</h4>
-                    <div className="dash-detail-description">
-                      <p className="dash-section-text">{selectedIdea.fullDescription}</p>
+                  <div className="d-section">
+                    <h4 className="d-sectionLabel">Full Description</h4>
+                    <div className="d-descWrap">
+                      <p className="d-sectionText">{selectedIdea.fullDescription}</p>
                     </div>
                   </div>
 
-                  <div className="dash-detail-section">
-                    <h4 className="dash-section-label">Team Members</h4>
-                    <div className="dash-team-list">
+                  <div className="d-section">
+                    <h4 className="d-sectionLabel">Team Members</h4>
+                    <div className="d-teamList">
                       {selectedIdea.team.length > 0 ? selectedIdea.team.map((member, idx) => (
-                        <span key={idx} className="dash-team-pill">
-                          <span className="material-symbols-outlined dash-team-pill-icon">person</span>
+                        <span key={idx} className="d-team">
+                          <span className="material-symbols-outlined d-teamIcon">person</span>
                           {member.name}
                         </span>
                       )) : (
-                        <span className="dash-team-empty">No additional team members</span>
+                        <span className="d-teamEmpty">No additional team members</span>
                       )}
                     </div>
                   </div>
                 </div>
 
-                <div className="dash-feedback-section">
-                  <label className="dash-feedback-label-wrapper">
-                    <span className="dash-feedback-label">
-                      Feedback <span className="dash-feedback-label-note">(Remarks/Reason for decision)</span>
+                <div className="d-feedbackSection">
+                  <label className="d-feedbackWrap">
+                    <span className="d-feedbackLabel">
+                      Feedback <span className="d-feedbackNote">(Remarks/Reason for decision)</span>
                     </span>
-                    <div className="dash-feedback-input-wrap">
+                    <div className="d-inputWrap">
                       <textarea
                         value={feedback}
                         onChange={(e) => setFeedback(e.target.value)}
-                        className="dash-feedback-input"
+                        className="d-input"
                         placeholder="Enter feedback for the students..."
                       ></textarea>
                       <button
@@ -272,7 +272,7 @@ const DashboardView = ({ showIssues, setShowIssues, notificationSelectId, onNoti
                             alert('Please enter feedback before sending');
                           }
                         }}
-                        className="dash-feedback-send-btn"
+                        className="d-sendBtn"
                         type="button"
                       >
                         <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>send</span>
@@ -282,10 +282,10 @@ const DashboardView = ({ showIssues, setShowIssues, notificationSelectId, onNoti
                   </label>
                 </div>
 
-                <div className="dash-actions-row">
+                <div className="d-actions">
                   <button
                     onClick={() => onUpdateStatus(selectedIdea.id, 'Rejected', feedback)}
-                    className="dash-btn dash-btn-outline dash-btn-reject"
+                    className="d-btn d-btnOutline d-btnReject"
                     type="button"
                   >
                     <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>cancel</span>
@@ -293,7 +293,7 @@ const DashboardView = ({ showIssues, setShowIssues, notificationSelectId, onNoti
                   </button>
                   <button
                     onClick={() => onUpdateStatus(selectedIdea.id, 'Accepted')}
-                    className="dash-btn dash-btn-accept"
+                    className="d-btn d-btnAccept"
                     type="button"
                   >
                     <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>check_circle</span>

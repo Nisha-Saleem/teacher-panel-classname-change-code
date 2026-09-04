@@ -69,96 +69,96 @@ const AllIdeasView = () => {
   const eveningCount = allIdeas.filter(i => i.session.includes('Evening') && (i.status === 'Accepted' || i.status === 'Rejected')).length;
 
   return (
-    <div className="ideas-page">
-      <div className="ideas-header">
-        <h2 className="ideas-title">All Ideas</h2>
-        <p className="ideas-subtitle">Manage approved and rejected FYP across all sessions.</p>
+    <div className="i-page">
+      <div className="i-head">
+        <h2 className="i-title">All Ideas</h2>
+        <p className="i-subtitle">Manage approved and rejected FYP across all sessions.</p>
       </div>
 
-      <div className="ideas-tabs-wrapper">
-        <nav aria-label="Tabs" className="ideas-tabs">
+      <div className="i-tabsWrap">
+        <nav aria-label="Tabs" className="i-tabs">
           <button
             onClick={() => setCurrentTab('Accepted')}
-            className={`ideas-tab-btn ${currentTab === 'Accepted' ? 'ideas-tab-btn-active' : ''}`}
+            className={`i-tab ${currentTab === 'Accepted' ? 'i-tabActive' : ''}`}
           >
-            <span className="material-symbols-outlined ideas-tab-icon">check_circle</span>
+            <span className="material-symbols-outlined i-tabIcon">check_circle</span>
             Accepted Ideas
-            <span className="ideas-tab-badge ideas-tab-badge-blue">{acceptedCount}</span>
+            <span className="i-tabBadge i-tabBlue">{acceptedCount}</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('Rejected')}
-            className={`ideas-tab-btn ${currentTab === 'Rejected' ? 'ideas-tab-btn-active' : ''}`}
+            className={`i-tab ${currentTab === 'Rejected' ? 'i-tabActive' : ''}`}
           >
-            <span className="material-symbols-outlined ideas-tab-icon">cancel</span>
+            <span className="material-symbols-outlined i-tabIcon">cancel</span>
             Rejected Ideas
-            <span className="ideas-tab-badge ideas-tab-badge-gray">{rejectedCount}</span>
+            <span className="i-tabBadge i-tabGray">{rejectedCount}</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('Morning')}
-            className={`ideas-tab-btn ${currentTab === 'Morning' ? 'ideas-tab-btn-active' : ''}`}
+            className={`i-tab ${currentTab === 'Morning' ? 'i-tabActive' : ''}`}
           >
-            <span className="material-symbols-outlined ideas-tab-icon">wb_sunny</span>
+            <span className="material-symbols-outlined i-tabIcon">wb_sunny</span>
             Morning Session
-            <span className="ideas-tab-badge ideas-tab-badge-orange">{morningCount}</span>
+            <span className="i-tabBadge i-tabOrange">{morningCount}</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('Evening')}
-            className={`ideas-tab-btn ${currentTab === 'Evening' ? 'ideas-tab-btn-active' : ''}`}
+            className={`i-tab ${currentTab === 'Evening' ? 'i-tabActive' : ''}`}
           >
-            <span className="material-symbols-outlined ideas-tab-icon">nights_stay</span>
+            <span className="material-symbols-outlined i-tabIcon">nights_stay</span>
             Evening Session
-            <span className="ideas-tab-badge ideas-tab-badge-purple">{eveningCount}</span>
+            <span className="i-tabBadge i-tabPurple">{eveningCount}</span>
           </button>
         </nav>
       </div>
 
-      <div className="ideas-card">
-        <div className="ideas-card-header">
-          <div className="ideas-card-header-left">
+      <div className="i-card">
+        <div className="i-cardHead">
+          <div className="i-cardLeft">
             <span
-              className={`material-symbols-outlined ideas-status-icon ${
+              className={`material-symbols-outlined i-icon ${
                 currentTab === 'Accepted'
-                  ? 'ideas-status-icon-accepted'
+                  ? 'i-iconAccept'
                   : currentTab === 'Rejected'
-                    ? 'ideas-status-icon-rejected'
-                    : 'ideas-status-icon-default'
+                    ? 'i-iconReject'
+                    : 'i-iconDefault'
               }`}
             >
               {currentTab === 'Accepted' ? 'check_circle' : currentTab === 'Rejected' ? 'cancel' : 'list_alt'}
             </span>
-            <h3 className="ideas-card-title">{currentTab} Ideas</h3>
+            <h3 className="i-cardTitle">{currentTab} Ideas</h3>
           </div>
         </div>
 
-        <div className="ideas-table-wrapper">
-          <table className="ideas-table">
-            <thead className="ideas-table-head">
+        <div className="i-tableWrap">
+          <table className="i-table">
+            <thead className="i-tableHead">
               <tr>
-                <th className="ideas-th">Idea Name</th>
-                <th className="ideas-th ideas-th-description">Description</th>
-                <th className="ideas-th">Leader Name</th>
-                <th className="ideas-th">Session</th>
-                <th className="ideas-th ideas-th-right">Status</th>
+                <th className="i-th">Idea Name</th>
+                <th className="i-th i-thDesc">Description</th>
+                <th className="i-th">Leader Name</th>
+                <th className="i-th">Session</th>
+                <th className="i-th i-thRight">Status</th>
               </tr>
             </thead>
             <tbody>
               {filteredIdeas.map(idea => (
-                <tr key={idea.id} className="ideas-tr">
-                  <td className="ideas-td ideas-td-title">{idea.title}</td>
-                  <td className="ideas-td ideas-td-description">{idea.shortDescription}</td>
-                  <td className="ideas-td">{idea.leader.name}</td>
-                  <td className="ideas-td ideas-td-session">{idea.session}</td>
-                  <td className="ideas-td ideas-td-right">
+                <tr key={idea.id} className="i-row">
+                  <td className="i-cell i-titleCell">{idea.title}</td>
+                  <td className="i-cell i-descrCell">{idea.shortDescription}</td>
+                  <td className="i-cell">{idea.leader.name}</td>
+                  <td className="i-cell i-sessionCell">{idea.session}</td>
+                  <td className="i-cell i-rightCell">
                     <span
-                      className={`ideas-status-pill ${
+                      className={`i-pill ${
                         idea.status === 'Accepted'
-                          ? 'ideas-status-pill-accepted'
+                          ? 'i-pillAccept'
                           : idea.status === 'Rejected'
-                            ? 'ideas-status-pill-rejected'
-                            : 'ideas-status-pill-pending'
+                            ? 'i-pillReject'
+                            : 'i-pillPending'
                       }`}
                     >
                       {idea.status}
@@ -168,15 +168,15 @@ const AllIdeasView = () => {
               ))}
               {filteredIdeas.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="ideas-empty">No items found in this view.</td>
+                  <td colSpan={5} className="i-empty">No items found in this view.</td>
                 </tr>
               )}
             </tbody>
           </table>
         </div>
 
-        <div className="ideas-card-footer">
-          <p className="ideas-footer-text">Showing {filteredIdeas.length} results</p>
+        <div className="i-footer">
+          <p className="i-footerText">Showing {filteredIdeas.length} results</p>
         </div>
       </div>
     </div>

@@ -1,41 +1,41 @@
 /* All Ideas View */
-.ideas-page {
+.i-page {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   height: 100%;
 }
 
-.ideas-header {
+.i-head {
   display: flex;
   flex-direction: column;
   gap: 0.0625rem;
 }
 
-.ideas-title {
+.i-title {
   font-size: 1.875rem;
   font-weight: 900;
   letter-spacing: -0.02em;
   color: #0f172a;
 }
 
-.ideas-subtitle {
+.i-subtitle {
   font-size: 0.875rem;
   color: #64748b;
 }
 
 /* Tabs */
-.ideas-tabs-wrapper {
+.i-tabsWrap {
   border-bottom: 1px solid #e2e8f0;
 }
 
-.ideas-tabs {
+.i-tabs {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
 }
 
-.ideas-tab-btn {
+.i-tab {
   white-space: nowrap;
   padding: 0.75rem 0.125rem;
   border: none;
@@ -51,21 +51,21 @@
   transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
 }
 
-.ideas-tab-btn:hover {
+.i-tab:hover {
   color: #334155;
   border-bottom-color: #cbd5f5;
 }
 
-.ideas-tab-btn-active {
+.i-tabActive {
   border-bottom-color: #2563eb;
   color: #2563eb;
 }
 
-.ideas-tab-icon {
+.i-tabIcon {
   font-size: 20px;
 }
 
-.ideas-tab-badge {
+.i-tabBadge {
   margin-left: 0.25rem;
   padding: 0.0625rem 0.375rem;
   border-radius: 999px;
@@ -73,18 +73,28 @@
   display: inline-block;
 }
 
-.ideas-tab-badge-blue {
+.i-tabBlue {
   background-color: #dbeafe;
   color: #2563eb;
 }
 
-.ideas-tab-badge-gray {
+.i-tabGray {
   background-color: #f1f5f9;
   color: #475569;
 }
 
+.i-tabOrange {
+  background-color: #ffedd5;
+  color: #b45309;
+}
+
+.i-tabPurple {
+  background-color: #f3e8ff;
+  color: #7c3aed;
+}
+
 /* Card */
-.ideas-card {
+.i-card {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -96,53 +106,53 @@
   overflow: hidden;
 }
 
-.ideas-card-header {
+.i-cardHead {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #e2e8f0;
   background-color: #f8fafc;
 }
 
-.ideas-card-header-left {
+.i-cardLeft {
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
 
-.ideas-card-title {
+.i-cardTitle {
   font-weight: 700;
   color: #0f172a;
 }
 
 /* Status icon colors */
-.ideas-status-icon {
+.i-icon {
   font-size: 20px;
 }
 
-.ideas-status-icon-accepted {
+.i-iconAccept {
   color: #16a339;
 }
 
-.ideas-status-icon-rejected {
+.i-iconReject {
   color: #dc2626;
 }
 
-.ideas-status-icon-default {
+.i-iconDefault {
   color: #475569;
 }
 
 /* Table */
-.ideas-table-wrapper {
+.i-tableWrap {
   flex: 1;
   overflow-y: auto;
 }
 
-.ideas-table {
+.i-table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
 }
 
-.ideas-table-head {
+.i-tableHead {
   position: sticky;
   top: 0;
   z-index: 10;
@@ -150,7 +160,7 @@
   border-bottom: 1px solid #e2e8f0;
 }
 
-.ideas-th {
+.i-th {
   padding: 0.5rem 1rem;
   font-size: 0.75rem;
   font-weight: 600;
@@ -160,34 +170,34 @@
   background-color: #f8fafc;
 }
 
-.ideas-th-description {
+.i-thDesc {
   width: 33.3333%;
 }
 
-.ideas-th-right {
+.i-thRight {
   text-align: right;
 }
 
-.ideas-tr {
+.i-row {
   border-bottom: 1px solid #f1f5f9;
   transition: background-color 0.15s ease;
 }
 
-.ideas-tr:hover {
+.i-row:hover {
   background-color: #f8fafc;
 }
 
-.ideas-td {
+.i-cell {
   padding: 0.625rem 1rem;
   font-size: 0.875rem;
   color: #0f172a;
 }
 
-.ideas-td-title {
+.i-titleCell {
   font-weight: 500;
 }
 
-.ideas-td-description {
+.i-descrCell {
   font-size: 0.75rem;
   color: #64748b;
   white-space: nowrap;
@@ -195,21 +205,21 @@
   text-overflow: ellipsis;
 }
 
-.ideas-td-leader {
+.i-leaderCell {
   color: #e2e8f0;
 }
 
-.ideas-td-session {
+.i-sessionCell {
   font-size: 0.75rem;
   color: #64748b;
 }
 
-.ideas-td-right {
+.i-rightCell {
   text-align: right;
 }
 
 /* Status pills for ideas */
-.ideas-status-pill {
+.i-pill {
   display: inline-flex;
   align-items: center;
   padding: 0.125rem 0.625rem;
@@ -218,36 +228,36 @@
   font-weight: 500;
 }
 
-.ideas-status-pill-accepted {
+.i-pillAccept {
   background-color: #dcfce7;
   color: #166534;
 }
 
-.ideas-status-pill-rejected {
+.i-pillReject {
   background-color: #fef2f2;
   color: #991b1b;
 }
 
-.ideas-status-pill-pending {
+.i-pillPending {
   background-color: #fef3c7;
   color: #92400e;
 }
 
 /* Footer */
-.ideas-card-footer {
+.i-footer {
   padding: 0.75rem 1rem;
   border-top: 1px solid #e2e8f0;
   background-color: #f8fafc;
 }
 
-.ideas-footer-text {
+.i-footerText {
   font-size: 0.75rem;
   color: #64748b;
   margin: 0;
 }
 
 /* Empty state */
-.ideas-empty {
+.i-empty {
   text-align: center;
   padding: 2rem;
   font-size: 0.875rem;
