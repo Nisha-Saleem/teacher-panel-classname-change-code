@@ -55,43 +55,43 @@ const ProgressView = () => {
     if (!hasLiveProgress) return null;
 
     return studentProgressData.map((progress, index) => (
-      <div key={`student-progress-${index}`} className="prog-card" style={{ border: '2px solid #4f46e5' }}>
-        <div className="prog-card-main">
-          <div className={`prog-group-label prog-group-label-primary`}>
+      <div key={`student-progress-${index}`} className="p-card" style={{ border: '2px solid #4f46e5' }}>
+        <div className="p-main">
+          <div className="p-chip p-chipPrimary">
             Student Progress
           </div>
-          <h3 className="prog-card-title">
+          <h3 className="p-cardTitle">
             {progress.projectName?.trim() || 'Student Project'}
           </h3>
-          <div className="prog-card-leader-progress">
-            <div className="prog-live-team">
-              <p className="prog-card-leader">
+          <div className="p-row">
+            <div className="p-team">
+              <p className="p-leader">
                 Leader: <span>{progress.leaderName?.trim() || 'Not set'}</span>
               </p>
               {progress.members && progress.members.length > 0 && (
-                <p className="prog-card-leader prog-live-members">
+                <p className="p-leader p-members">
                   Members: <span>{progress.members.join(', ')}</span>
                 </p>
               )}
             </div>
-            <div className="prog-card-progress">
-              <div className="prog-progress-header">
-                <span className="prog-progress-label">Completion</span>
-                <span className="prog-progress-value">{progress.progress ?? 0}%</span>
+            <div className="p-barBox">
+              <div className="p-headRow">
+                <span className="p-label">Completion</span>
+                <span className="p-value">{progress.progress ?? 0}%</span>
               </div>
-              <div className="prog-progress-bar-bg">
+              <div className="p-barBg">
                 <div
-                  className={`prog-progress-bar-fill ${
+                  className={`p-barFill ${
                     (progress.progress ?? 0) > 80
-                      ? 'prog-progress-bar-emerald'
+                      ? 'p-barEmerald'
                       : (progress.progress ?? 0) > 50
-                        ? 'prog-progress-bar-primary'
-                        : 'prog-progress-bar-amber'
+                        ? 'p-barPrimary'
+                        : 'p-barAmber'
                   }`}
                   style={{ width: `${progress.progress ?? 0}%` }}
                 ></div>
               </div>
-              <div className="prog-progress-milestones">
+              <div className="p-meta">
                 <span>
                   {progress.tasks?.filter((t) => t.status === 'Completed').length || 0}{' '}
                   Tasks Completed
@@ -106,22 +106,22 @@ const ProgressView = () => {
   };
 
   return (
-    <div className="prog-page">
-      <div className="prog-header">
-        <div className="prog-header-text">
-          <h2 className="prog-title">Student Progress</h2>
-          <p className="prog-subtitle">Track project progress of all student groups.</p>
+    <div className="p-page">
+      <div className="p-head">
+        <div className="p-headTxt">
+          <h2 className="p-title">Student Progress</h2>
+          <p className="p-sub">Track project progress of all student groups.</p>
         </div>
       </div>
 
-      <div className="prog-list">
+      <div className="p-list">
         {loading ? (
-          <div className="prog-empty">
-            <p className="prog-empty-text">Loading progress data...</p>
+          <div className="p-empty">
+            <p className="p-emptyText">Loading progress data...</p>
           </div>
         ) : !hasLiveProgress ? (
-          <div className="prog-empty">
-            <p className="prog-empty-text">No live student progress found yet. Students need to set up their project and track progress in the student panel.</p>
+          <div className="p-empty">
+            <p className="p-emptyText">No live student progress found yet. Students need to set up their project and track progress in the student panel.</p>
           </div>
         ) : (
           displayStudentProgress()
