@@ -177,52 +177,52 @@ const Upload = () => {
   };
 
   return (
-    <div className="upload-page">
-      <div className="upload-container">
+    <div className="u-page">
+      <div className="u-box">
         {/* Left Side - Upload System */}
-        <div className="upload-left">
-          <div className="upload-header">
-            <h2 className="upload-title">Upload System</h2>
-            <p className="upload-subtitle">Share your materials with the Students</p>
+        <div className="u-left">
+          <div className="u-head">
+            <h2 className="u-title">Upload System</h2>
+            <p className="u-sub">Share your materials with the Students</p>
           </div>
 
           {/* Announcement Section */}
-          <div className="announcement-section">
-            <label className="announcement-label">
+          <div className="a-box">
+            <label className="a-label">
               Announcement
             </label>
             <textarea
               value={announcement}
               onChange={handleAnnouncementChange}
               placeholder="Enter announcement text..."
-              className="announcement-input"
+              className="a-input"
             />
           </div>
 
           {/* File Upload Section */}
-          <div className="upload-section">
-            <label className="upload-label">
+          <div className="u-set">
+            <label className="u-label">
               Upload New Material
             </label>
-            <div className="upload-area">
+            <div className="u-area">
               <input
                 ref={fileInputRef}
                 type="file"
                 multiple
                 accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
                 onChange={handleFileSelect}
-                className="file-input"
+                className="u-file"
               />
               <div 
-                className="upload-drop-zone"
+                className="u-drop"
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}
               >
-                <span className="upload-icon">📁</span>
-                <p className="upload-text">
+                <span className="u-icon">📁</span>
+                <p className="u-text">
                   Click to browse or drag and drop files here
                 </p>
-                <p className="upload-subtext">
+                <p className="u-subText">
                   Supported formats: PDF, PNG, JPG, DOC, DOCX (Max 20MB per file)
                 </p>
               </div>
@@ -232,43 +232,43 @@ const Upload = () => {
           {/* Upload Button */}
           <button
             onClick={handleUpload}
-            className="upload-btn primary-btn"
+            className="u-btn u-primary"
             disabled={selectedFiles.length === 0}
           >
-            <span className="upload-btn-icon">⬆</span>
+            <span className="u-btnIcon">⬆</span>
             Upload {selectedFiles.length} {selectedFiles.length === 1 ? 'File' : 'Files'}
           </button>
         </div>
 
         {/* Right Side - Upload History */}
-        <div className="upload-right">
-          <div className="history-header">
-            <h3 className="history-title">Upload History</h3>
-            <p className="history-subtitle">Recent uploads and materials</p>
+        <div className="u-right">
+          <div className="h-head">
+            <h3 className="h-title">Upload History</h3>
+            <p className="h-sub">Recent uploads and materials</p>
           </div>
 
-          <div className="history-list">
+          <div className="h-list">
             {/* Selected Files */}
             {selectedFiles.map(file => (
-              <div key={file.id} className="history-item selected-item">
-                <div className="file-info">
-                  <div className="file-icon">
+              <div key={file.id} className="h-item h-selected">
+                <div className="f-info">
+                  <div className="f-icon">
                     {file.type.includes('pdf') ? '📄' : 
                      file.type.includes('image') ? '🖼️' : 
                      file.type.includes('doc') ? '📄' : '📎'}
                   </div>
-                  <div className="file-details">
-                    <h4 className="file-name">{file.name} <span className="pending-badge">(Pending Upload)</span></h4>
-                    <p className="file-announcement">{file.announcement}</p>
-                    <p className="file-meta">
-                      <span className="file-size">{formatFileSize(file.size)}</span>
-                      <span className="file-date">{file.uploadDate}</span>
+                  <div className="f-details">
+                    <h4 className="f-name">{file.name} <span className="h-badge">(Pending Upload)</span></h4>
+                    <p className="f-note">{file.announcement}</p>
+                    <p className="f-meta">
+                      <span className="f-size">{formatFileSize(file.size)}</span>
+                      <span className="f-date">{file.uploadDate}</span>
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={() => setSelectedFiles(prev => prev.filter(f => f.id !== file.id))}
-                  className="remove-file-btn"
+                  className="h-del"
                 >
                   ✕
                 </button>
@@ -276,26 +276,26 @@ const Upload = () => {
             ))}
             {/* Uploaded Files */}
             {uploadedFiles.length === 0 && selectedFiles.length === 0 ? (
-              <div className="empty-history">
-                <span className="empty-icon">📂</span>
-                <p className="empty-text">No uploads yet</p>
-                <p className="empty-subtext">Start by uploading your first material</p>
+              <div className="h-empty">
+                <span className="h-emptyIcon">📂</span>
+                <p className="h-emptyText">No uploads yet</p>
+                <p className="h-emptySub">Start by uploading your first material</p>
               </div>
             ) : (
               uploadedFiles.map(file => (
-                <div key={file.id} className="history-item">
-                  <div className="file-info">
-                    <div className="file-icon">
+                <div key={file.id} className="h-item">
+                  <div className="f-info">
+                    <div className="f-icon">
                       {file.type.includes('pdf') ? '📄' : 
                        file.type.includes('image') ? '🖼️' : 
                        file.type.includes('doc') ? '📄' : '📎'}
                     </div>
-                    <div className="file-details">
-                      <h4 className="file-name">{file.name}</h4>
-                      <p className="file-announcement">{file.announcement}</p>
-                      <p className="file-meta">
-                        <span className="file-size">{formatFileSize(file.size)}</span>
-                        <span className="file-date">{file.uploadDate}</span>
+                    <div className="f-details">
+                      <h4 className="f-name">{file.name}</h4>
+                      <p className="f-note">{file.announcement}</p>
+                      <p className="f-meta">
+                        <span className="f-size">{formatFileSize(file.size)}</span>
+                        <span className="f-date">{file.uploadDate}</span>
                       </p>
                     </div>
                   </div>
